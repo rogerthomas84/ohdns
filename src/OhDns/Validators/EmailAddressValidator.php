@@ -10,12 +10,13 @@ use OhDns\OhDns;
 class EmailAddressValidator
 {
     /**
-     * This verifies that MC records exist for the domain section of an email address.
+     * This verifies that an email address is valid, optionally checking the DNS for valid MX records.
      *
      * @param string $emailAddress
+     * @param bool $deepMxCheck (optional) whether to also check the MX records.
      * @return bool
      */
-    public static function isValid($emailAddress)
+    public static function isValid($emailAddress, $deepMxCheck=true)
     {
         if (mb_strstr($emailAddress, '@') === false || mb_strstr($emailAddress, '.') === false) {
             return false;
@@ -36,6 +37,10 @@ class EmailAddressValidator
         }
         if (mb_substr($domain, 0, 1) === '.' || mb_substr($domain, -1) === '.') {
             return false;
+        }
+
+        if ($deepMxCheck === false) {
+            return true;
         }
 
         $records = OhDns::getInstance()->getMXRecords(

@@ -30,15 +30,5 @@ Composer...
 -----------
 
 ``` 
-{
-    "repositories":[
-        {
-            "type": "vcs",
-            "url": "git@github.com:rogerthomas84/ohdns.git"
-        }
-    ],
-    "require": {
-        "rogerthomas84/ohdns": "^1.0"
-    }
-}
+composer require rogerthomas84/ohdns
 ```

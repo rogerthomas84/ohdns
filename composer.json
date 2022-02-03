@@ -3,7 +3,7 @@
     "description": "OhDns is a DNS record lookup library for PHP.",
     "keywords": ["dns", "ohdns", "mx", "aaaa", "a", "lookup"],
     "homepage": "https://github.com/rogerthomas84/ohdns",
-    "license": "MIT",
+    "license": "mit",
     "authors": [
         {
             "name": "Roger Thomas",
